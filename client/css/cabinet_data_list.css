@@ -1,0 +1,26 @@
+.data-list {
+    border-right: none;
+    border-left: none;
+}
+.data-list .btn.btn-small {
+    margin: 0 5px;
+}
+.data-list small.paid {
+    border: solid 1px #0f9d58;
+    color: #0f9d58;
+    border-radius: 3px;
+    padding: 2px 5px;
+    margin: 5px 0 0 0;
+    display: inline-block;
+}
+.data-list small[data-paid=""],
+.data-list small[data-delivery_inner_id=""]
+{
+    display: none;
+}
+.data-list {
+    font-size: 13px;
+}
+.data-list small.gray {
+    color: #999;
+}

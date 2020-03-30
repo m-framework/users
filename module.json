@@ -1,0 +1,21 @@
+{
+  "title":"Users",
+  "name":"users",
+  "description":"Manage users, users groups and rights, authorisations, visitors. Also this system module allows to attach to user a social networks profiles, so authorisation via Facebook, VK, Instagram, Linkedin, Google, Twitter available !",
+  "icon":"<i class=\"fa fa-users\"></i>",
+  "version":"1.0",
+  "date":"2018-01-02",
+  "author":"mrinmiro@gmail.com",
+  "compatible_cores":["1.0"],
+  "dashboard_menu":{
+    "/overview":"<i class=\"fa fa-users\"></i> *Users overview*",
+    "/groups":"<i class=\"fa fa-user-circle-o\"></i> *Users groups*",
+    "/permissions":"<i class=\"fa fa-drivers-license-o\"></i> *Users permissions*",
+    "/authorizations":"<i class=\"fa fa-unlock\"></i> *Authorizations*",
+    "/visitors":"<i class=\"fa fa-user-o\"></i> *Visitors*",
+    "/social":"<i class=\"fa fa-twitter\"></i> *Social networks profiles*",
+    "../../../admin/modules/options/users":"<i class=\"fa fa-cog\"></i> *Module options*"
+  },
+  "price":"0",
+  "":""
+}

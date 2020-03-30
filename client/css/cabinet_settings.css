@@ -1,0 +1,44 @@
+.edit-form {
+    margin-bottom: 20px;
+}
+.edit-form .edit_row {
+    display: block;
+    margin: 0;
+}
+.edit-form .edit_row dt {
+    display: inline-block;
+    vertical-align: top;
+    padding: 15px 0 0 0;
+    margin: 0;
+    width: 20%;
+    min-height: 38px;
+    line-height: 18px;
+    overflow: hidden;
+}
+.edit-form .edit_row dd {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+    width: 80%;
+}
+.btn.btn-grey,
+.btn.btn-grey .fa
+{
+    background-color: #9c9c9c;
+    color: #fff;
+}
+.circle {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+}
+.circle img {
+    width: 100%;
+    height: auto;
+    min-height: 160px;
+}
+.tabs li form {
+    margin-top: 20px;
+}
