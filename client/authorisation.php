@@ -35,14 +35,12 @@ class authorisation extends module
 
     public function _init()
     {
-//        core::out(functions::__md5code('c34m2h'));
-
         if (!empty($this->alias) && $this->alias == 'out') {
             $this->logout();
             return true;
         }
-
         if (!empty($this->request->login) && !empty($this->request->password)) {
+
             $this->login();
         }
 
@@ -77,7 +75,8 @@ class authorisation extends module
                 'title' => registry::get('title'),
             ]));
 
-        } else if (!empty($this->page) && !empty($this->page->type) && $this->page->type == 'authorisation'
+        }
+        else if (!empty($this->page) && !empty($this->page->type) && $this->page->type == 'authorisation'
             && isset($this->view->reset_form) && !empty($this->route['1']) && $this->route['1'] == 'reset') {
 
             $captcha = captcha::get_captcha();
@@ -174,7 +173,6 @@ class authorisation extends module
             $this->errors[] = $this->view->attempt->prepare(['minutes' => $login['attempt']]);
             return false;
         }
-
         if (!empty($login['user'])) {
             events::call('notification_user_authorisation', $login['user']);
 

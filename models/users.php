@@ -192,9 +192,9 @@ class users extends model
 
             $_expire = $this->generate_expire();
 
-            setcookie('authorize', $cookie_authorize, $_expire, '/', $domain->host);
+            setcookie('authorize', $cookie_authorize, $_expire, '/', "." . $domain->host);
             if ($domain->host !== $site->host) {
-                setcookie('authorize', $cookie_authorize, $_expire, '/', $site->host);
+                setcookie('authorize', $cookie_authorize, $_expire, '/', '.' . $site->host);
             }
 
             if (!empty($this->profile) && !empty($_expire))
@@ -206,9 +206,9 @@ class users extends model
             return true;
         }
         else{
-            setcookie('authorize','',time()-86400,'/', $domain->host);
+            setcookie('authorize','',time()-86400,'/','.' . $domain->host);
             if ($domain->host !== $site->host) {
-                setcookie('authorize', '', time()-86400, '/', $site->host);
+                setcookie('authorize', '', time()-86400, '/', '.' . $site->host);
             }
 
             return false;
@@ -501,9 +501,9 @@ class users extends model
             return $response;
         }
 
-        setcookie('authorize', $authorize, $expire, '/', $domain->host);
+        setcookie('authorize', $authorize, $expire, '/', '.' . $domain->host);
         if ($domain->host !== $site->host) {
-            setcookie('authorize', $authorize, $expire, '/', $site->host);
+            setcookie('authorize', $authorize, $expire, '/', '.' . $site->host);
         }
 
         return $this;
@@ -564,26 +564,14 @@ class users extends model
             }
         }
 
-        if (!empty($profiles)) {
-            $cond = [
-                'users.profile' => $profiles,
-                'users.password' => $this->__md5code($password),
-                'users.confirmed' => '1'
-            ];
-        }
-        else {
-            $cond = [
-                'users.login' => $login,
-                'users.password' => $this->__md5code($password),
-                'users.confirmed' => '1'
-            ];
-        }
-
         $this->select(
             ['users.*'],
             [],
 //            ['users_info' => ['profile' => 'profile']],
-            $cond,
+            [
+                'users.profile' => $profiles,
+                'users.password' => $this->__md5code($password),
+                'users.confirmed' => '1'],
             [],
             [],
             [1]
@@ -642,9 +630,9 @@ class users extends model
             return $response;
         }
 
-        setcookie('authorize', $authorize, $expire, '/', $domain->host);
+        setcookie('authorize', $authorize, $expire, '/', ".".$domain->host);
         if ($domain->host !== $site->host) {
-            setcookie('authorize', $authorize, $expire, '/', $site->host);
+            setcookie('authorize', $authorize, $expire, '/', '.' . $site->host);
         }
 
         $response['user'] = $this;
